@@ -11,10 +11,20 @@ function setupSocket() {
     // This function is called whenever a new game state is received from the server
     socket.on('gameState', function (jsonGameState) {
         console.log(jsonGameState);
+        const gameState = JSON.parse(jsonGameState);
 
         // TODO: Display the game state on your GUI
         // You must display: current gold, and the name, number owned, and cost for each type of equipment
-
+        document.getElementById("currentGold").innerHTML = "<h3>Current Gold: </h3>" + gameState["gold"];
+        document.getElementById("shovel").innerHTML = "<h4>Shovel: </h4>" +
+            "<b>--- Cost: </b>" + gameState["equipment"]["shovel"]["cost"] + "<br />" +
+            "<b>--- Owned: </b>" + gameState["equipment"]["shovel"]["numberOwned"];
+        document.getElementById("excavator").innerHTML = "<h4>Excavator: </h4>" +
+            "<b>--- Cost: </b>" + gameState["equipment"]["excavator"]["cost"] + "<br />" +
+            "<b>--- Owned: </b>" + gameState["equipment"]["excavator"]["numberOwned"];
+        document.getElementById("mine").innerHTML = "<h4>Mine: </h4>" +
+            "<b>--- Cost: </b>" + gameState["equipment"]["mine"]["cost"] + "<br />" +
+            "<b>--- Owned: </b>" + gameState["equipment"]["mine"]["numberOwned"];
     });
 }
 

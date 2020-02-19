@@ -7,10 +7,23 @@
 </head>
 <body onload="initializeGame();">
 
-
 <!-- TODO: Setup your GUI -->
 <!-- You may assume that there will be exactly 3 types of equipment with ids of "shovel", "excavator", and "mine" -->
 <!-- You may hardcode elements as HTML and/or use JavaScript with the initializeGame() function to setup your GUI -->
+
+
+<div id="mainDiv">
+    <div id="currentGold"></div>
+    <div id="equipment"><h3>Equipment</h3></div>
+    <div id="shovel"></div>
+    <div id="excavator"></div>
+    <div id="mine"></div>
+</div>
+
+<button onclick="clickGold();">Get Gold</button>
+<button onclick="buyEquipment('shovel');">Buy Shovel</button>
+<button onclick="buyEquipment('excavator');">Buy Excavator</button>
+<button onclick="buyEquipment('mine');">Buy Mine</button>
 
 
 <script src="game.js"></script>
